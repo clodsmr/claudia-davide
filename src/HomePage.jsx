@@ -30,7 +30,7 @@ function HomePage() {
             backgroundPosition: 'center',
             filter: 'grayscale(100%) brightness(0.9)',
             backgroundRepeat: 'no-repeat',
-            height: '30vh',
+            height: '20rem',
             opacity: '0.7',
             display: 'flex',
             justifyContent: 'center'
@@ -57,7 +57,7 @@ function HomePage() {
               justifyContent: 'center',
               flexDirection: 'column',
               textAlign: 'center',
-              height: '35vh',
+              height: '26rem',
               width: '100%',
               border: 'none',
               boxSizing: 'border-box',
@@ -178,7 +178,7 @@ function HomePage() {
         <Card
           sx={{
             position: 'relative',
-            height: '30vh',
+            height: '20rem',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',

@@ -16,6 +16,7 @@ const theme = createTheme({
           borderRadius: 0,
           boxShadow: 'none',
           border: 'none',
+          width: '100vw'
         },
       },
     },
