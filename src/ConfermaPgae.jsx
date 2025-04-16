@@ -33,11 +33,13 @@ const ConfermaPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const presenza = formData.presenza === 'sì' ? 1 : 0
   
     const form = new FormData();
     form.append('nome', formData.nome);
     form.append('cognome', formData.cognome);
-    form.append('presenza', formData.presenza);
+    form.append('presenza', presenza);
     form.append('menu', formData.menu);
     form.append('allergie', formData.allergie);
     form.append('dal', formData.dal);
