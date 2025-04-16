@@ -3,8 +3,8 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './Layout';
 import HomePage from './HomePage';
-import ConfermaPage from './confermaPage';
-import DettagliPage from './dettagliPage';
+import ConfermaPage from './ConfermaPgae';
+import DettagliPage from './DetailsPage';
 import ListanozzePage from './ListanozzePage';
 
 const App = () => {
