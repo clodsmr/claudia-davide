@@ -23,6 +23,8 @@ const ConfermaPage = () => {
     numeroBambini: '',
   });
 
+  const [success, setSuccess] = useState(false)
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -54,9 +56,11 @@ const ConfermaPage = () => {
       .then((response) => response.text())
       .then((data) => {
         console.log('Form submitted:', data);
+        setSuccess(true)
       })
       .catch((error) => {
         console.error('Error:', error);
+        setSuccess(false)
       });
   };
   
@@ -191,6 +195,26 @@ const ConfermaPage = () => {
             N.B. La scelta del menù riguarda solo la cena servita al tavolo: durante il buffet degli antipasti potrai gustare un’ampia varietà di piatti, indipendentemente dalla tua scelta. <br />
           </Typography>
 
+{   success ? 
+          <Button
+         
+          variant="contained"
+          sx={{
+            backgroundColor: 'white',
+            borderRadius: '0px',
+            color: '#e2cebe',
+            border: '2px solid #e2cebe',
+            width: '8rem',
+            alignSelf: 'center',
+            marginTop: '3vh',
+            boxShadow: 'none',
+            fontWeight: '700'
+          }}
+          
+        >
+          INVIATO
+        </Button>
+            :
           <Button
             type="submit"
             variant="contained"
@@ -206,7 +230,7 @@ const ConfermaPage = () => {
             disabled={!isFormValid}
           >
             INVIA
-          </Button>
+          </Button>}
         </form>
       </Card>
     </Container>
