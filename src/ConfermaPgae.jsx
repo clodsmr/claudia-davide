@@ -24,6 +24,7 @@ const ConfermaPage = () => {
   });
 
   const [success, setSuccess] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,7 +36,7 @@ const ConfermaPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    setLoading(true)
     const presenza = formData.presenza === 'sì' ? 1 : 0
   
     const form = new FormData();
@@ -57,10 +58,12 @@ const ConfermaPage = () => {
       .then((data) => {
         console.log('Form submitted:', data);
         setSuccess(true)
+        setLoading(false)
       })
       .catch((error) => {
         console.error('Error:', error);
         setSuccess(false)
+        setLoading(false)
       });
   };
   
@@ -197,7 +200,7 @@ const ConfermaPage = () => {
 
 {   success ? 
           <Button
-         
+          id='inviato'
           variant="contained"
           sx={{
             backgroundColor: 'white',
@@ -208,7 +211,27 @@ const ConfermaPage = () => {
             alignSelf: 'center',
             marginTop: '3vh',
             boxShadow: 'none',
-            fontWeight: '700'
+            fontWeight: '700',
+
+            '&:focus': {
+                color: '#e2cebe',
+                borderColor: '#e2cebe',
+                backgroundColor: 'white',
+            },
+        
+            // Active (clicked) state
+            '&:active': {
+                backgroundColor: 'white',
+                color: '#e2cebe',
+                borderColor: '#e2cebe',
+            },
+        
+            // Optional: Hover state
+            '&:hover': {
+                color: '#e2cebe',
+                backgroundColor: 'white',
+                borderColor: '#e2cebe',
+            },
           }}
           
         >
@@ -218,6 +241,8 @@ const ConfermaPage = () => {
           <Button
             type="submit"
             variant="contained"
+            loading={loading}
+            loadingPosition="end"
             sx={{
               backgroundColor: '#e2cebe',
               borderRadius: '0px',
