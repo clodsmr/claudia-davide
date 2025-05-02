@@ -68,7 +68,12 @@ const ConfermaPage = () => {
   };
   
 
-  const isFormValid = formData.nome && formData.cognome && formData.presenza && formData.menu;
+  const isFormValid =
+  formData.nome.trim() &&
+  formData.cognome.trim() &&
+  formData.presenza &&
+  (formData.presenza !== 'sì' || formData.menu);
+
 
   return (
     <Container disableGutters maxWidth={false}>
